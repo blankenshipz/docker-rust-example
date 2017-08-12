@@ -1,0 +1,15 @@
+version: '3.0'
+
+services:
+  bin:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: cargo test
+    volumes:
+      - .:/usr/src/app
+      - registry:/root/.cargo/registry
+
+volumes:
+  registry:
+    driver: local
